@@ -29,7 +29,7 @@ public class ClasePrincipal {
         t2.start();
         t3.start();
 
-        t2.stop();
+        t2.stop();  //Se provoca la finalizacion del hilo t2
         //Tercer estado
         //Es necesario que el metodo sleep se ejecute dentro del try, en general de una excepcion
         try {
