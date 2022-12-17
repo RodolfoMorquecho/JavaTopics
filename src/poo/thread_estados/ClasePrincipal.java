@@ -21,19 +21,27 @@ a finalizar sin haber concluido su tarea por completo.
 public class ClasePrincipal {
     public static void main(String[] args){
         //Primer estado
-        Thread t1 = new Thread(new HiloProceso());  //El hilo ha sido creado pero no inicializado.
+        Thread t1 = new Thread(new HiloProceso("Thread1"));  //El hilo ha sido creado pero no inicializado.
+        Thread t2 = new Thread(new HiloProceso("Thread2"));
+        Thread t3 = new Thread(new HiloProceso("Thread3"));
         //Segundo estado
         t1.start();  //El hilo se inicializa/arranca ya que el metodo start() crea los recursos del sistema necesarios para ekjecutar
+        t2.start();
+        t3.start();
 
+        t2.stop();
         //Tercer estado
         //Es necesario que el metodo sleep se ejecute dentro del try, en general de una excepcion
         try {
             t1.sleep(2000);  //El hilo sigue en ejecución pero se impide durante 2 seg. con el metodo "sleep()"
+            t2.sleep(3000);
+            t3.sleep(2000);
         }catch (InterruptedException e){
             System.out.println("Error" + e);
         }
 
         //Cuarto estado
         t1.stop();  //Con este método se obliga al hilo a finalizar
+        t3.stop();
     }
 }
