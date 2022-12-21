@@ -1,4 +1,4 @@
-package poo.matrices;
+package poo.matrices.suma;
 //Tema 11: "Suma de Matrices"
 /*
 La suma de matrices solo se puede realizar entre matrices de la misma dimensión, es decir, la mismas filas y las mismas
