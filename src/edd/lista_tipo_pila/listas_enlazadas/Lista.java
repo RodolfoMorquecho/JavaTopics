@@ -26,9 +26,13 @@ public class Lista {
     public void mostrarLista(){
         //Nueva variable de tipo Nodo(que apuntara a Nodo)
         Nodo recorrer = inicio;  //recorrer va a estar apuntando a inicio
+        System.out.println("");  //Salto de linea para separar cada visualizacion cuando se agrega un nuevo Nodo
         while (recorrer != null){  //Mientras recorrer no apunte a null, mostrar los nodos
+            //Ya que recorrer esta apuntando a Nodo inicio, al imprimir mostrara el dato que hay en ese Nodo
+            //Ya que recorrer esta apuntando a Nodo inicio, tambien tendra acceso a su enlace al siguiente Nodo
             System.out.print("["+recorrer.dato+"]--->");  //Se accede a la variable dato del Nodo recorrer y se muestra
             //Para que el ciclo muestre los demas nodos de la lista a los que se apunta, se asignara a recorrer pero con la var "siguiente"
+            //Ya que siguiente esta apuntando al nodo posterior del nodo inicial(actual)
             recorrer = recorrer.siguiente;  //Cuando recorrer apunta a null se termina el condicional
         }
     }
