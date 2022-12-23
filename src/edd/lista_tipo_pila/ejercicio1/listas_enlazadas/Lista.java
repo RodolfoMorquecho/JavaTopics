@@ -1,4 +1,4 @@
-package edd.lista_tipo_pila.listas_enlazadas;
+package edd.lista_tipo_pila.ejercicio1.listas_enlazadas;
 
 
 public class Lista {

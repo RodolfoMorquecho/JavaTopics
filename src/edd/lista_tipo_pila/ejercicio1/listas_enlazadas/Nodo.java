@@ -1,4 +1,4 @@
-package edd.lista_tipo_pila.listas_enlazadas;
+package edd.lista_tipo_pila.ejercicio1.listas_enlazadas;
 
 //Nodo no es una palabra reservada, es el nombre que se le da a la clase para tener mejor entendimiento a la hora de usarla
 public class Nodo {
