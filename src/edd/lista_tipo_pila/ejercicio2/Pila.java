@@ -41,4 +41,24 @@ public class Pila {
     public boolean pilaVacia(){
         return ultimoValorIngresado == null;  //Si se cumple esta condicion retorna "true", lo que indica que esta vacia
     }
+
+    //Método para insertar un Nodo en la Pila
+    public void insertarNodo(int valor){  //valor es la informacion que va a recibir coo parametro el constructor al crear el Nodo
+        Nodo nuevoNodo = new Nodo(valor);  //Se crea una var de tipo Nodo que apunte al nodo mas reciente creado
+        //El campo siguiente del Nodo apunta a ultimoValorIngresado, pero para el caso donde no hay un nodo creado antes,
+        //va a apuntar a null, ya que la variable esta inicializada en null
+        nuevoNodo.siguiente = ultimoValorIngresado;
+        //Ahora se referenciía a ultimoValorIngresado hacia el nodo creado recientemente, para que avence por todos los nodos
+        ultimoValorIngresado = nuevoNodo;
+        tamano++;  //Cada que cumpla un ciclo el método, aumentara de uno en uno el tamano
+    }
+
+    //Método para eliminar un Nodo de la pila
+    public int eliminarNodo(){
+        //Se guarda el dato del ultimo nodo ingresado, en la var auxiliar de tipo entero
+        int auxiliar = ultimoValorIngresado.informacion;  //Se muestra el dato que sera eliminado
+        ultimoValorIngresado = ultimoValorIngresado.siguiente;  //Vale el valor del Nodo anterior, ya no el actual
+        tamano--;  //Se resta de 1 en 1 la cantidad de nodos que hay o el tamaño de la lista
+        return auxiliar;  //Retorna el nodi(numero-valor) que se quita de la Lista
+    }
 }
