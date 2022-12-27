@@ -27,6 +27,8 @@ Por último, una pila al ser una lista puede almacenar en el campo de informaci�
 valores enteros, valores flotantes, cadenas de caracteres, objetos, etc.
  */
 
+import javax.swing.*;
+
 public class Pila {
     private Nodo ultimoValorIngresado;
     int tamano = 0;
@@ -54,11 +56,44 @@ public class Pila {
     }
 
     //Método para eliminar un Nodo de la pila
-    public int eliminarNodo(){
+    public int eliminarNodo(){  //El metodo contiene el int ya que espera el retorno de un valor del mismo tipo
         //Se guarda el dato del ultimo nodo ingresado, en la var auxiliar de tipo entero
         int auxiliar = ultimoValorIngresado.informacion;  //Se muestra el dato que sera eliminado
         ultimoValorIngresado = ultimoValorIngresado.siguiente;  //Vale el valor del Nodo anterior, ya no el actual
-        tamano--;  //Se resta de 1 en 1 la cantidad de nodos que hay o el tamaño de la lista
+        tamano--;  //Se resta de 1 en 1 la cantidad de nodos que hay o el tamaño de la lista cada que se elimina un Nodo
         return auxiliar;  //Retorna el nodi(numero-valor) que se quita de la Lista
+    }
+
+    //Método para conocer cual es el valor del ultimo valor ingresado
+    public int mostrarUltimoValorIngresado(){
+        //Retorna lo que hay en la variable informacion del Nodo al que apunta "ultimoValorIngresado"
+        return ultimoValorIngresado.informacion;
+    }
+
+    //Método para conocer el tamaño de la Pila
+    public int tamanoDePila(){
+        return tamano;
+    }
+
+    //Método para vaciar la pila
+    public void vaciarPila(){
+        //Mientras el metodo "pilaVacia()" retorne "false" o sea diferente de null:
+        while (!pilaVacia()){  //Se va a repetir la accion dentro de llaves
+            eliminarNodo();  //Se utilizara el método "eliminarNodo" hasta que
+        }
+    }
+
+    //Método para mostrar el contenido de la pila
+    public void mostrarValores(){
+        Nodo recorrido = ultimoValorIngresado;  //Nodo recorrido apunta al Nodo "ultimoValorIngresado"
+
+        while (recorrido != null){  //Mientras el Nodo recorrido sea diferente de null:
+            Lista += recorrido.informacion +"\n";  //Se almacena en la var Lista la variable entera de cada nodo enlazado
+            //Se translada al Nodo anterior para que cuando se empiece de nuevo el condicional, se acceda a la var de
+            // tipo entera del Nodo anterior y no se quede en el mismo Nodo siempre
+            recorrido = recorrido.siguiente;  //Parte del ultimoValorIngresado que es donde apunta inicialmente
+        }
+        JOptionPane.showMessageDialog(null,Lista);  //La lista se mostrada en una ventana emergente
+        Lista = "";  //Se limpia la lsita para que la proxima vez que se pida mostrar, no se acumulen los valores y se repitan
     }
 }
