@@ -30,7 +30,7 @@ public class Principal {
                         //Se almacena en la variable de tipo entero "nodo" el valor ingresasdo por el usuario(string)
                         nodo = Integer.parseInt(JOptionPane.showInputDialog(null,
                                 "Ingrese el valor a guardar en el nodo: "));
-                        
+
                         pila.insertarNodo(nodo);  //Se accede al método insertarNodo y se pasa como parametro lo que el usuario ingreso
                         break;
                     case 2:  //Eliminar nodo
