@@ -2,6 +2,7 @@ package edd.lista_tipo_pila.analizador_sintactico.clases;
 
 public class Pila {
     private Nodo ultimoValorIngresado;  //Apuntara al nodo mas reciente ingresado
+    int contador = 0;
 
     public Pila(){  //Constructor
         ultimoValorIngresado = null;  //Se inicializa apuntando a null, ya que no hay un nodo previo
@@ -21,6 +22,7 @@ public class Pila {
             //Para recorrer de nodo, hacemos que ultimoValorIngresado apunte al nuevo nodo, o mas reciente
             ultimoValorIngresado = nuevo_nodo;
         }
+        contador++;
     }
 
     //Método para extraer un nodo de la pila

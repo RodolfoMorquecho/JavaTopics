@@ -91,8 +91,11 @@ public class Interfaz extends JFrame {  //Heredamos desde JFrame para usar los c
             }
         }
         /*Si no hay un false hasta aqui, significa que la expresion esta escrita correctamente, pero si existe un error
-        de escritura, va a existir un false dentro de las sentencias anteriores
+        de escritura, va a existir un false dentro de las sentencias anteriores, lo que no va a permitir terminar de
+        recorrer la estructura repetitiva y automaticamente le va a dar el valor de false al método "validarExpresion",
+        hasta que no se corrija y se vuelva a ejecutar la accion al presionar el boton que dispara el actionListaner
         */
+        System.out.println(pila.contador);
         return pila.pilaVacia();
     }
 }
