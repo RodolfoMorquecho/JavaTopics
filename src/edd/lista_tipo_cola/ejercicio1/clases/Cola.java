@@ -19,7 +19,7 @@ public class Cola {
     }
 
     //Método para saber si la cola esta vacia
-    public boolean pilaVacia(){
+    public boolean colaVacia(){
         if (inicioCola == null){
             return true;  //Significa que la cola esta vacía
         }else {
@@ -32,7 +32,7 @@ public class Cola {
         Nodo nuevo_nodo = new Nodo();  //Crear objeto de tipo Nodo
         nuevo_nodo.informacion = valor;  //Se asigna el valor que viene por parametro, al campo de informacion del nodo
         nuevo_nodo.siguiente = null;  //Siempre que se agregue un nuevo_nodo apuntara a null
-        if(pilaVacia()){  //Este condicional solo se utiliza para el primer Nodo
+        if(colaVacia()){  //Este condicional solo se utiliza para el primer Nodo
             inicioCola = nuevo_nodo;  //El inicio de la cola siempre apuntara al primer nodo creado
             finalCola = nuevo_nodo;  //El final de la cola siempre apuntara al nuevo_nodo, al creado mas reciente
         }else {
@@ -61,7 +61,7 @@ public class Cola {
     //Método para extraer nodo de la cola
     public int extraerNodo(){  //Va a retornar el valor que se extraera, siempre se empieza por el primer nodo que se ingreso
         int infotmacion = inicioCola.informacion;  //Se asigna a la variable informacion el valor de informacion del primer nodo de la cola
-        if (!pilaVacia()){  //Si la cola no esta vacia:
+        if (!colaVacia()){  //Si la cola no esta vacia:
             if (inicioCola == finalCola){  //Significa que en este punto solo hay un nodo en la cola
                 inicioCola = null;  //Los apuntadores del ultimo Nodo, solo pueden apuntar a null
                 finalCola = null;
@@ -82,7 +82,7 @@ public class Cola {
         String colaInvertida = "";  //Variable para recuperar los valores pero de forma invertida
 
         while (recorrido != null){  //Mientrar el Nodo "recorrido" no apunte a null, debe ejecutar las instrucciones dentro de llaves
-            cola += recorrido.informacion + " ";  //Se almacena el valor del Nodo en la variable global "cola"
+            cola += recorrido.informacion + " ";  //Se almacena el valor del Nodo en la variable global "cola" y se agrega un espacio
             recorrido = recorrido.siguiente;  //Se recorre el Nodo "recorrido" hasta que apunte a null y se termine el ciclo
         }
 
@@ -90,13 +90,18 @@ public class Cola {
         //El método "split" recibirá como parámetro un carácter o grupo de carácteres que usará como patrón a la hora de
         //dividir la cadena para nutrir los diversos miembros del Array.
         String cadena [] = cola.split(" ");  //Cada que haya un espacio, guardara un nuevo elemento en el array
+        //Si ingresamos: 10 20 30  al invertir la cadena nos quedarian 03 02 01 pero con split los maneja como un elemento por lo que
+        //los acomodara: 30 20 10
 
-        //Estructura repetitiva que va desde el ultimo valor al primero
-        for (int i= cadena.length-1; i>=0; i--){
-            colaInvertida += " "+ cadena[i];
+        //Estructura repetitiva recorrera todos los elementos del array cadena, en orden del ultimo al primero
+        for (int i= cadena.length-1; i>=0; i--){  //se utiliza el -1 en "cadena.lenght-1" para evitar el error null pointer
+            colaInvertida += " "+ cadena[i];  //Almacenara los valores en el orden correcto
+            //Por ejemplo:
+            //Al ingresar 10, 20 y 30, los ordenara de la siguiente forma: 30 20 10
+
         }
 
         JOptionPane.showMessageDialog(null,colaInvertida);
-        cola = "";  //Se limpian los nodos que contiene la cola
+        cola = "";  //Se limpian los nodos que contiene la cola para evitar los resultados anteriores cada que se solicite
     }
 }
