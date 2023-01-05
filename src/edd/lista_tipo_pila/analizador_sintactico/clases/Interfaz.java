@@ -95,7 +95,6 @@ public class Interfaz extends JFrame {  //Heredamos desde JFrame para usar los c
         recorrer la estructura repetitiva y automaticamente le va a dar el valor de false al método "validarExpresion",
         hasta que no se corrija y se vuelva a ejecutar la accion al presionar el boton que dispara el actionListaner
         */
-        System.out.println(pila.contador);
         return pila.pilaVacia();
     }
 }
