@@ -5,7 +5,6 @@ import javax.swing.*;
 public class Cola {
     Nodo inicio, fin;
     String cola = "";
-    int sumar = 0;
 
     public Cola(){
         inicio = null;
@@ -31,9 +30,6 @@ public class Cola {
             fin.siguiente = nuevo;  //El enlace del primer Nodo  creado, apunta al mas nuevo(2do Nodo creado)
             fin = nuevo;  //El nodo de referencia "fin" siempre apuntara al Nodo creado mas reciente
         }
-        sumar += nuevo.dato;
-        /*int valores = Integer.parseInt(cadena[i]);  //Se convertira cada valor a entero y se almacena en la var "sumar" de tipo entero
-        sumar += valores;  //Se suman todos los valores*/
     }
 
     //Método para eliminar un nodo a la cola
@@ -75,6 +71,14 @@ public class Cola {
 
     //Método para sumar el valor de los nodos
     public int sumatoria(){
-        return sumar;  //Se llama a la variable sumar, que ya realizo las operaciones dentro del metodo "insertar"
+        int sumar = 0;  //Cada que se llame a la funcion dejara en sumar a 0 para evitar que se sume con la llamada anterior de la funcion
+        Nodo almacenar = inicio;  //Nodo almacenar se posiciona en el inicio de la cola
+        while (almacenar != null){  //Se repetiran las instrucciones hasta que se llegue al fin de la cola
+            sumar += almacenar.dato;  //Se suman todos los valores de los nodos
+            almacenar = almacenar.siguiente;  //Se recorren los nodos desde el primero al ultimo en la cola
+        }
+        JOptionPane.showMessageDialog(null, "La suma de los valores es igual a " + sumar);
+        return sumar;  //Se retorna sumar, ya que es la que almacena el valor de la operacion entre los nodos
     }
+
 }

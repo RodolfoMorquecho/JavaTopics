@@ -32,12 +32,10 @@ public class Principal {
                         }
                         break;
                     case 3:
-                        cola2.mostrarContenido();
+                        cola2.mostrarContenido();  //Se llama a la funcion que contiene los valores para mostrar
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null,
-                                "La suma de los valores es igual a " + cola2.sumatoria());
-                        //cola2.sumar = 0;
+                        cola2.sumatoria();  //Se llama a la funcion que contiene la suma de los datos de nodos
                         break;
                     case 5:
                         seleccion = 5;
