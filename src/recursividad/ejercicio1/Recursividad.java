@@ -1,4 +1,12 @@
 package recursividad.ejercicio1;
+/*
+Recursividad:
+La recursividad en programación, es una técnica la cual permite que un bloque de instrucciones codificadas se ejecute "n" veces.
+Logrando en ocasiones remplazar a las estructuras repetitivas.
+
+En java los métodos pueden llamarse a si mismos, esto es posible cuando dentro de un método existe la invocación a si mismo, y de
+esta manera se considera que este método es recursivo.
+ */
 
 public class Recursividad {
     //Método para sumar e imprimir una variable, sin utilizar una estructura como for o while
