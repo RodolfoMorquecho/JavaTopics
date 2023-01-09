@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="interfaz_grafica.graphics.formas.ejercicio_formas.Formulario">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="13" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="468" height="366"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="4df02" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="2bdf1" class="javax.swing.JLabel" binding="etiqueta1">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Adobe Heiti Std R" size="16" style="1"/>
+              <horizontalAlignment value="10"/>
+              <text value="Formulario de figuras"/>
+              <verticalAlignment value="0"/>
+            </properties>
+          </component>
+          <component id="56cf2" class="javax.swing.JLabel" binding="etiqueta2">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="1. Nombre de la figura de 4 lados, con base y altura de distinto tamaño:"/>
+            </properties>
+          </component>
+          <component id="6d395" class="javax.swing.JRadioButton" binding="radio1">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Circulo"/>
+            </properties>
+          </component>
+          <component id="1588d" class="javax.swing.JRadioButton" binding="radio2">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Elipse"/>
+            </properties>
+          </component>
+          <component id="ed04d" class="javax.swing.JRadioButton" binding="radio3">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <selected value="false"/>
+              <text value="Rectangulo"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="bae05" class="javax.swing.JLabel" binding="etiqueta3">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="2. Cual es la forma geometrica de un huevo?"/>
+        </properties>
+      </component>
+      <vspacer id="6b1c8">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="ee4ba">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="9abda" class="javax.swing.JRadioButton" binding="radio5">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ovalo"/>
+        </properties>
+      </component>
+      <component id="8291f" class="javax.swing.JRadioButton" binding="radio6">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Rectangulo"/>
+        </properties>
+      </component>
+      <component id="1b521" class="javax.swing.JRadioButton" binding="radio4">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Circulo"/>
+        </properties>
+      </component>
+      <component id="59692" class="javax.swing.JRadioButton" binding="radio7">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Triangulo"/>
+        </properties>
+      </component>
+      <component id="6bd88" class="javax.swing.JRadioButton" binding="radio8">
+        <constraints>
+          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cubo"/>
+        </properties>
+      </component>
+      <component id="7ba5c" class="javax.swing.JRadioButton" binding="radio9">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Esfera"/>
+        </properties>
+      </component>
+      <vspacer id="18652">
+        <constraints>
+          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="f082b" class="javax.swing.JLabel" binding="etiqueta4">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="3. Figura poligona de 3 lados y la suma de sus angulos internos es 180° : "/>
+        </properties>
+      </component>
+      <vspacer id="749ba">
+        <constraints>
+          <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="4cacb" class="javax.swing.JButton" binding="boton1">
+        <constraints>
+          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Enviar"/>
+        </properties>
+      </component>
+      <component id="de948" class="javax.swing.JLabel" binding="etiquetaRes">
+        <constraints>
+          <grid row="11" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Resultado:"/>
+        </properties>
+      </component>
+      <vspacer id="6446e">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="bb326">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="58e92">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <hspacer id="bd72a">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="e9338">
+        <constraints>
+          <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="bg1">
+      <member id="ed04d"/>
+      <member id="ed04d"/>
+      <member id="1588d"/>
+      <member id="6d395"/>
+    </group>
+    <group name="bg2">
+      <member id="1b521"/>
+      <member id="1b521"/>
+      <member id="8291f"/>
+      <member id="9abda"/>
+    </group>
+    <group name="bg3">
+      <member id="59692"/>
+      <member id="59692"/>
+      <member id="6bd88"/>
+      <member id="7ba5c"/>
+    </group>
+  </buttonGroups>
+</form>
