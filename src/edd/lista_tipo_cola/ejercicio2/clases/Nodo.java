@@ -1,4 +1,4 @@
-package edd.lista_tipo_cola.ejercicio2;
+package edd.lista_tipo_cola.ejercicio2.clases;
 
 public class Nodo {
     int dato;

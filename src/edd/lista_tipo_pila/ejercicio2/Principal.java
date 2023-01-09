@@ -1,5 +1,7 @@
 package edd.lista_tipo_pila.ejercicio2;
 
+import edd.lista_tipo_pila.ejercicio2.Pila;
+
 import javax.swing.*;
 
 public class Principal {
