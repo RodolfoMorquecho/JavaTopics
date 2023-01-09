@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.Normalizer;
 
 public class Formulario extends JFrame{
     //Se agregan los RadioButton a grupos de botones en la pestaña de diseño GUI Form
@@ -28,16 +27,15 @@ public class Formulario extends JFrame{
     private JLabel etiqueta4;
     private JLabel etiquetaRes;
 
-    boolean bandera [] = new boolean[3];
-
-
+    boolean bandera [] = new boolean[3];  //Arreglo de variables  de tipo boolean
 
     public Formulario(){
        setContentPane(mainPanel);
        setBounds(0,0,500,730);
        setLocationRelativeTo(null);
+       setResizable(false);
        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        boton1.addActionListener(new ActionListener() {
+       boton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int preguntas = 3;
@@ -82,47 +80,44 @@ public class Formulario extends JFrame{
                     }
                 }
 
-
+                //Se suman los puntos de las respuestas correctas y se almacenan en la var "aciertos"
                 for (int i=0;i< valor.length;i++){
                     aciertos += valor[i];
                 }
+                //Se establece el resultado final en la etiquetaRes
                 etiquetaRes.setText("El numero de aciertos es "+aciertos);
             }
-        });
+       });
     }
 
     //Método para dibujar las figuras, en las respuestas correctas
     public void paint(Graphics g){
         super.paint(g);
-        //if(bandera[0] == true && (radio1.isSelected || radio2.isSelected)
-        if(bandera[0] == true){
+
+        if(bandera[0] == true){  //Respuesta correcta de la primer pregunta, dibuja un rectangulo de color azul
             g.setColor(Color.BLUE);
             g.drawRect(200,150,100,70);
         }
 
-        if(bandera[1] == true){
-            g.setColor(Color.GREEN);
+        if(bandera[1] == true){  //Respuesta correcta de la segunda pregunta, dibuja un ovalo de color naranja
+            g.setColor(Color.ORANGE);
             g.drawOval(210,315,60,100);
         }
 
-        if(bandera[2] == true){
+        if(bandera[2] == true){  ////Respuesta correcta de la tercer pregunta, dibuja un triangulo de color azul
             g.setColor(Color.MAGENTA);
 
-            int ejeX[] = {210,255,165};
-            int ejeY[] = {480,580,580};
+            int ejeX[] = {230,275,185};
+            int ejeY[] = {500,600,600};
 
             g.drawPolygon(ejeX,ejeY,3);
         }
-        /*else {
-            if(radio1.isSelected() || radio2.isSelected()){
-                g.setColor(Color.RED);
-                g.drawString("Respuesta incorrecta",180,180);
-            }
-        } */
 
     }
 
     public static void main(String[] args) {
+        Formulario formulario = new Formulario();
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
