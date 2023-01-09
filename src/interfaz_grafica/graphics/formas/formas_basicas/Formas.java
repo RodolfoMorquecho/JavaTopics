@@ -1,4 +1,4 @@
-package interfaz_grafica.graphics.formas;
+package interfaz_grafica.graphics.formas.formas_basicas;
 
 import javax.swing.*;
 import java.awt.*;
