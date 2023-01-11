@@ -85,13 +85,13 @@ public class GraficaCircular extends JFrame{
             g.setColor(new Color(0,130,0));
             g.fillArc(25,80,200,200,grados_rojo,grados_verde);
             g.fillRect(250,150,20,20);
-            g.drawString("Color Rojo",275,165);
+            g.drawString("Color Verde",275,165);
 
             //Votos Azules
             g.setColor(new Color(0,0,255));
             g.fillArc(25,80,200,200,grados_rojo + grados_verde,grados_azul);
             g.fillRect(250,180,20,20);
-            g.drawString("Color Rojo",275,195);
+            g.drawString("Color Azul",275,195);
         }
     }
 }
