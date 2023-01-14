@@ -27,15 +27,62 @@ que mas adelante concectaremos con nuestros desarrollos en java.
 
 - Presionar "start" en los modulos de "Apache" y "MySQL" en el panel de control inicial.
 
-![](C:\Users\1044467\Desktop\ConfiguracionXAMPP\1PanelDeControl.png)
 ![](1PanelDeControl.png)
 
 - Abrira una página donde esta el host de la base de datos que se creara, conocido como "localhost".
   Quiere decir que ya estamos dentro del servidor local que acabamos de instalar, por lo que ya se puede
   comenzar a crear y gestionar bases de datos para posteriormente conectarlas con Java.
 
-![](C:\Users\1044467\Desktop\ConfiguracionXAMPP\2LocalHost.png)
+![](2LocalHost.png)
+
+## Creación de Base de Datos en XAMPP
+
+- Se selecciona la opción "Base de Datos".
+
+![](3SeleccionBaseDeDatos.png)
+
+- Dentro del apartado "Base de Datos", tendremos al inicio 2 campos de texto, en el primero se inidica
+  el nombre que tendra la "bd", y en el segundo se indica el tipo de cotejamiento, es decír, el tipo de
+  caracteres que se van a utilizar, por ejemplo se suelen usar acentos, pero si no se utiliza la opción
+  "utf8_unicode_ci" se mostraran simbolos extraños en su lugar.
+
+- Se dara click en crear.
+
+![](4CrearBaseDeDatos.png)
+
+- Ya creada la base de datos, ahora se debe de crear una tabla, a la cual nombraremos "alumnos" y posteriormente
+  indicar el "Número de columnas" que se utilizaran, es decír, el número de campos que va a tener la tabla.
+  En este caso, usaremos 3 ya que se colocara un número de identificación(id), nombre y grupo al que pertenece.
+
+- Dar click en "Continuar".
+
+![](5CrearTabla.png)
+
+- Se puede observar los apartados que se deben de llenar para las 3 columnas que previamente reservamos.
+
+![](5_1Resultadotabla.png)
+
+- Se llenara la tabla, explicación con columna ID:
+  -Nombre: ID
+  -Tipo: INT(Entero)
+  -Longitud/Valores: 50(El numéro como maximo puede tener 50 digitos)
+  -Cotejamiento: utf8_unicode_ci
+  -Indice: Solo para el identificador "ID" se asigna el "primary key"(Llave primaria que permite relacionar tablas entre sí)
+  -A_I: Seleccionar como marcado(Hace referencia a que cada que entre un nuevo registro, se auto-incrementa el ID)
+  -Los campos no mencionados se pueden dejar como estan predeterminados.
+
+- Por lo regular cuando se trabaja con nombres como variable, se utiliza el tipo "VARCHAR" ya que va de una long. de 0 a 65.
+
+![](6LlenadoDeTabla.png)
+
+- El "Comentario de tabla" generalmente se escribe para otro programador que vaya a trabajar con ella.
+- El cotejamiento se utiliza el mismo que el de las columnas y el motor de almacenamiento se deja configurado como esta.
+- Dar click en "Guardar".
+
+![](7ComentarioDeTabla.png)
 
 
-## Creación de Base de Datos en XAMPPLL
+- Se tienen listos los 3 campos de la tabla, por lo que ya se puede iniciar a ingresar valores en la base de datos,
+  mediante la conección de los programas desarrollados en Java.
 
+![](8BaseDeDatosLista.png)
