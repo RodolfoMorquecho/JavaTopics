@@ -27,7 +27,8 @@ que mas adelante concectaremos con nuestros desarrollos en java.
 
 - Presionar "start" en los modulos de "Apache" y "MySQL" en el panel de control inicial.
 
-![1Panel](C:\Users\1044467\Desktop\ConfiguracionXAMPP\1PanelDeControl.png)
+![](C:\Users\1044467\Desktop\ConfiguracionXAMPP\1PanelDeControl.png)
+![](1PanelDeControl.png)
 
 - Abrira una página donde esta el host de la base de datos que se creara, conocido como "localhost".
   Quiere decir que ya estamos dentro del servidor local que acabamos de instalar, por lo que ya se puede
