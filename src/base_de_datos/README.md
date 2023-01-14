@@ -26,9 +26,16 @@ que mas adelante concectaremos con nuestros desarrollos en java.
 ## Configuración XAMPP
 
 - Presionar "start" en los modulos de "Apache" y "MySQL" en el panel de control inicial.
+![](C:\Users\1044467\Desktop\ConfiguracionXAMPP\1PanelDeControl.png)
 
 - Abrira una página donde esta el host de la base de datos que se creara, conocido como "localhost".
   Quiere decir que ya estamos dentro del servidor local que acabamos de instalar, por lo que ya se puede
+<<<<<<< HEAD
   comenzar a crear y gestionar bases de datos para poteriormente conectarlas con Java.
   
  
+=======
+  comenzar a crear y gestionar bases de datos para posteriormente conectarlas con Java.
+
+![](C:\Users\1044467\Desktop\ConfiguracionXAMPP\2LocalHost.png)
+>>>>>>> b9573c6 (Nuevos Cambios)
