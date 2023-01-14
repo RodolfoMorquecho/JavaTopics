@@ -27,11 +27,8 @@ que mas adelante concectaremos con nuestros desarrollos en java.
 
 - Presionar "start" en los modulos de "Apache" y "MySQL" en el panel de control inicial.
 
-![1PanelDeControl](https://user-images.githubusercontent.com/99112892/212448814-e9c44c57-74c3-42c8-b5e6-e05b48f5cc09.png)
-
 - Abrira una página donde esta el host de la base de datos que se creara, conocido como "localhost".
   Quiere decir que ya estamos dentro del servidor local que acabamos de instalar, por lo que ya se puede
   comenzar a crear y gestionar bases de datos para poteriormente conectarlas con Java.
   
-  ![2LocalHost](https://user-images.githubusercontent.com/99112892/212448824-a2abb8e4-fc4a-4279-ac00-fe8404b07f1d.png)
-
+ 
