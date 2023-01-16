@@ -27,19 +27,19 @@ que mas adelante concectaremos con nuestros desarrollos en java.
 
 - Presionar "start" en los modulos de "Apache" y "MySQL" en el panel de control inicial.
 
-![](1PanelDeControl.png)
+![](img/1PanelDeControl.png)
 
 - Abrira una página donde esta el host de la base de datos que se creara, conocido como "localhost".
   Quiere decir que ya estamos dentro del servidor local que acabamos de instalar, por lo que ya se puede
   comenzar a crear y gestionar bases de datos para posteriormente conectarlas con Java.
 
-![](2LocalHost.png)
+![](img/2LocalHost.png)
 
 ## Creación de Base de Datos en XAMPP
 
 - Se selecciona la opción "Base de Datos".
 
-![](3SeleccionBaseDeDatos.png)
+![](img/3SeleccionBaseDeDatos.png)
 
 - Dentro del apartado "Base de Datos", tendremos al inicio 2 campos de texto, en el primero se inidica
   el nombre que tendra la "bd", y en el segundo se indica el tipo de cotejamiento, es decír, el tipo de
@@ -48,7 +48,7 @@ que mas adelante concectaremos con nuestros desarrollos en java.
 
 - Se dara click en crear.
 
-![](4CrearBaseDeDatos.png)
+![](img/4CrearBaseDeDatos.png)
 
 - Ya creada la base de datos, ahora se debe de crear una tabla, a la cual nombraremos "alumnos" y posteriormente
   indicar el "Número de columnas" que se utilizaran, es decír, el número de campos que va a tener la tabla.
@@ -56,11 +56,11 @@ que mas adelante concectaremos con nuestros desarrollos en java.
 
 - Dar click en "Continuar".
 
-![](5CrearTabla.png)
+![](img/5CrearTabla.png)
 
 - Se puede observar los apartados que se deben de llenar para las 3 columnas que previamente reservamos.
 
-![](5_1Resultadotabla.png)
+![](img/5_1Resultadotabla.png)
 
 - Se llenara la tabla, explicación con columna ID:
   -Nombre: ID
@@ -73,16 +73,16 @@ que mas adelante concectaremos con nuestros desarrollos en java.
 
 - Por lo regular cuando se trabaja con nombres como variable, se utiliza el tipo "VARCHAR" ya que va de una long. de 0 a 65.
 
-![](6LlenadoDeTabla.png)
+![](img/6LlenadoDeTabla.png)
 
 - El "Comentario de tabla" generalmente se escribe para otro programador que vaya a trabajar con ella.
 - El cotejamiento se utiliza el mismo que el de las columnas y el motor de almacenamiento se deja configurado como esta.
 - Dar click en "Guardar".
 
-![](7ComentarioDeTabla.png)
+![](img/7ComentarioDeTabla.png)
 
 
 - Se tienen listos los 3 campos de la tabla, por lo que ya se puede iniciar a ingresar valores en la base de datos,
   mediante la conección de los programas desarrollados en Java.
 
-![](8BaseDeDatosLista.png)
+![](img/8BaseDeDatosLista.png)
