@@ -1,11 +1,10 @@
-package base_de_datos.BD_Alumnos.ventanas.ventanas;
+package base_de_datos.BD_Alumnos.ventanas;
 
 /*
 Cuando se va a crear conexion a una base de datos es muy importante colocar el código dentro de una sentencia o
 estructura "try-catch".
  */
 
-import java.lang.reflect.Executable;
 import java.sql.*;  //Libreria importante para trabajar con la base de datos
 
 
