@@ -28,7 +28,7 @@ public class RegistroAlumnos extends JFrame{
         this.setContentPane(panel1);
         setBounds(0,0,350,400);
         setLocationRelativeTo(null);
-        setResizable(false);
+        //setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         //Programación de lo botones
@@ -151,6 +151,9 @@ public class RegistroAlumnos extends JFrame{
         });
     }
 
+    //Para que la conexión a la base de datos se haga es necesario ir al panel de control de XAMPP e iniciar los modulos de
+    //"Apache" y "MySQL", una vez que se hayan arrancado exitosamente, dirigirse al navegador y escribir la siguiente ruta:
+    // "localhost/phpmyadmin", ahora podremos visualizar nuestras bases de datos
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
