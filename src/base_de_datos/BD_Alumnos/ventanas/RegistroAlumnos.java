@@ -32,7 +32,7 @@ public class RegistroAlumnos extends JFrame{
 
         //Programación de lo botones
 
-        //Boton btnRegistrar
+        //Boton btnRegistrar - Create
         btnRegistrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -95,7 +95,7 @@ public class RegistroAlumnos extends JFrame{
             }
         });
 
-        //Boton btnBuscar
+        //Boton btnBuscar - Read
         btnBuscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,6 +146,35 @@ public class RegistroAlumnos extends JFrame{
                     //No es necesario poner el mensaje, ya que si no muetra nada, el error es de conexión
                 }
 
+            }
+        });
+
+        //Boton btnModificar - Update
+        btnModificar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Siempre que se trabaje con conexión a base de datos, se utiliza la estructura try-catch
+                try {
+                    //Guardar en una variable temporal de tipo string el código de identificadión del alumno(ID) con el que
+                    //el usuario quiere modificar desde la interfaz hacía la base de datos
+                    String ID = txt_buscar.getText().trim();
+
+                    //Línea de código para conectarse a la base de datos, la misma que en los anteriores botones
+                    Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_ins","root","");
+
+                    /*
+                    Línea de código para la instrucción que va a recibir nuestra base de datos desde java:
+                    Updata=modificar, set=colocar,  '?': se pone ya que no se sabe que valor sera ingresado
+                    Modificar en la tabla alumnos y colocar en el campo NombreAlumno lo que el usuario ingrese en txt_nombre, en el
+                    campo Grupo lo que el usuario ingrese en txt_grupo, donde el ID sea igual al string ID recuperado de txt_buscar
+                     */
+                    PreparedStatement pst = cn.prepareStatement("update alumnos set NombreAlumno = ?, Grupo = ? where ID = " + ID);
+
+                    pst.setString(1,txt_nombre.getText().trim());
+
+                }catch (Exception exception){
+
+                }
             }
         });
     }
