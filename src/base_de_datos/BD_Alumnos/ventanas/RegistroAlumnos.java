@@ -150,6 +150,7 @@ public class RegistroAlumnos extends JFrame{
         });
 
         //Boton btnModificar - Update
+        //Para hacer una modificación es necesario primero poner en campo de buscar el ID, y hacer los cambios requeridos
         btnModificar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -170,11 +171,57 @@ public class RegistroAlumnos extends JFrame{
                      */
                     PreparedStatement pst = cn.prepareStatement("update alumnos set NombreAlumno = ?, Grupo = ? where ID = " + ID);
 
-                    pst.setString(1,txt_nombre.getText().trim());
+                    //Indicar los campos que se van a modificar
+                    /*
+                    Ya se sabe que la columna "1" corresponde al campo de los ID en la tabla de datos, pero como se esta
+                    realizando una modificación, java tomara el orden de la instruccion(Query) que se le esta mandando a la base
+                    de datos en la linea anterior de código, por lo tanto tomara a "NombreAlumno" en el 1
+                     */
+                    //Esto llegara al primer signo de interrogación de la query
+                    pst.setString(1,txt_nombre.getText().trim()); //En el 1 se recupera el nombre ingresado en interfaz
+                    //Esto llegara en el segundo signo de interrogación de la query
+                    pst.setString(2,txt_grupo.getText().trim()); //En el 2 se recupera el grupo ingresado en interfaz
 
+                    //Se necesitan ejecutar las lineas de código previas
+                    pst.executeUpdate();  //Médiante el objeto que se comunica con la base de datos, se accede al método que hara ejecución
+
+                    //Indicar al usuario que la modificación se realizo de manera exitosa, mediante la etiqueta label_status
+                    label_status.setText("Modificación exitosa.");
+
+                }catch (Exception exception){
+                    //No es necesario poner el mensaje, ya que si no muetra nada, el error es de conexión
+                }
+            }
+        });
+
+        //Boton btnEliminar - Delete
+        btnEliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    /*
+                    La instrucción o query que se le enviara a la base datos desde este boton sera:
+                    "borrar un alumno donde el código de identificación coincida con el que el usuario esta escribiendo
+                    desde la interfaz"
+                     */
+                    Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_ins","root","");
+                    PreparedStatement pst = cn.prepareStatement("delete from alumnos where ID = ?");
+
+                    pst.setString(1,txt_buscar.getText().trim());  //Se manda al primer y unico signo de interrogación de la query
+                    pst.executeUpdate();  //Se ejecuta la instruccion hacia la base de datos
+
+                    //Se limpian los campos de la interfaz, ya que se a eliminado el registro
+                    txt_nombre.setText("");
+                    txt_grupo.setText("");
+                    txt_buscar.setText("");
+
+                    //Se manda un mensaje para avisar que el registro fue eliminado
+                    label_status.setText("Registro eliminado.");
+                    
                 }catch (Exception exception){
 
                 }
+
             }
         });
     }
