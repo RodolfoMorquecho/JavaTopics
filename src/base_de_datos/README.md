@@ -29,6 +29,7 @@ que mas adelante concectaremos con nuestros desarrollos en java.
 
 ![](img/1PanelDeControl.png)
 
+
 - Abrira una página donde esta el host de la base de datos que se creara, conocido como "localhost".
   Quiere decir que ya estamos dentro del servidor local que acabamos de instalar, por lo que ya se puede
   comenzar a crear y gestionar bases de datos para posteriormente conectarlas con Java.
