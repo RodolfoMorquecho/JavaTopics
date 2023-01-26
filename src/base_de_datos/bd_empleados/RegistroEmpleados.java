@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 public class RegistroEmpleados extends JFrame{
@@ -49,6 +50,34 @@ public class RegistroEmpleados extends JFrame{
                     txt_entrada.setSelectedItem("");
                     txt_salida.setSelectedItem("");
 
+                    label_status.setText("Registro exitoso.");
+
+                }catch (Exception exception){
+
+                }
+            }
+        });
+
+        //Modificar
+        btnModificar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Connection cn = DriverManager.getConnection("jdbc:mysql://loclahost/bd_emp","root","");
+                    PreparedStatement pst = cn.prepareStatement("select * from empleados where ID = ?");
+
+                    pst.setString(1,txt_buscar.getText().trim());  //Asignar el ID a pst, dentro del campo "buscar"
+
+                    ResultSet rs = pst.executeQuery();  //Se verifica si el valor buscado se encuentra en la tabla mediante el objeto rs
+
+                    //LLenar los campos con la información buscada por el usuario, mediante el objeto rs de la calse ResultSet
+                    if(rs.next()){  //Si se encuentra el resultado en la tabla:
+                        txt_nombre.setText(rs.getString("NombreEmpleados"));  //nombre del campo
+                        txt_entrada.setSelectedItem(rs.getString("HoraEntrada"));
+                        txt_salida.setSelectedItem(rs.getString("HoraSalida"));
+                    }else {
+                        JOptionPane.showMessageDialog(null,"Emleado no registrado.");
+                    }
                 }catch (Exception exception){
 
                 }
