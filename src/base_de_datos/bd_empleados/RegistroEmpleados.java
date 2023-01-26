@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.*;
 
 
 public class RegistroEmpleados extends JFrame{
@@ -38,7 +39,7 @@ public class RegistroEmpleados extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 try {
                     Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_emp","root","");
-                    PreparedStatement pst = cn.prepareStatement("insert into empleados values(?,?,?)");
+                    PreparedStatement pst = cn.prepareStatement("insert into empleados values(?,?,?,?)");
 
                     pst.setString(1,"0");
                     pst.setString(2,txt_nombre.getText().trim());
@@ -65,7 +66,7 @@ public class RegistroEmpleados extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Connection cn = DriverManager.getConnection("jdbc:mysql://loclahost/bd_emp","root","");
+                    Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_emp","root","");
                     PreparedStatement pst = cn.prepareStatement("select * from empleados where ID = ?");
 
                     pst.setString(1,txt_buscar.getText().trim());  //Asignar el ID a pst, dentro del campo "buscar"
@@ -77,6 +78,9 @@ public class RegistroEmpleados extends JFrame{
                         txt_nombre.setText(rs.getString("NombreEmp"));  //nombre del campo
                         txt_entrada.setSelectedItem(rs.getString("HoraEnt"));
                         txt_salida.setSelectedItem(rs.getString("HoraSal"));
+                        //txt_entrada.setSelectedItem(rs.getString(3));
+                        //txt_salida.setSelectedItem(rs.getString(4));
+
                         //label_status.setText("");
                     }else {  //En caso de no estar el resultado en la tabla:
                         JOptionPane.showMessageDialog(null,"Emleado no registrado.");
