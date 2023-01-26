@@ -23,14 +23,17 @@ public class RegistroEmpleados extends JFrame{
     private JComboBox txt_salida;
     private JPanel panel1;
     private JLabel label_status;
+    private JLabel label_work;
 
 
     public RegistroEmpleados(){
         this.setContentPane(panel1);
-        setBounds(0,0,550,440);
+        setBounds(0,0,560,440);
+        setTitle("Checador de Tiempo");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+        //Método que agrega los 24 items de las horas
         listaDeHoras();
 
         //Registrar
@@ -78,12 +81,16 @@ public class RegistroEmpleados extends JFrame{
                         txt_nombre.setText(rs.getString("NombreEmp"));  //nombre del campo
                         txt_entrada.setSelectedItem(rs.getString("HoraEnt"));
                         txt_salida.setSelectedItem(rs.getString("HoraSal"));
+
+                        tiempoDeTrabajo();  //Se llama al método que indica las horas trabajadas por el empleado
+                        label_status.setText("");
+
+                        //Tambien se pueden escribir los valores mediante el numero de columna, como alternativa:
                         //txt_entrada.setSelectedItem(rs.getString(3));
                         //txt_salida.setSelectedItem(rs.getString(4));
 
-                        //label_status.setText("");
                     }else {  //En caso de no estar el resultado en la tabla:
-                        JOptionPane.showMessageDialog(null,"Emleado no registrado.");
+                        JOptionPane.showMessageDialog(null,"Empleado no registrado.");
                     }
                 }catch (Exception exception){
 
@@ -137,15 +144,9 @@ public class RegistroEmpleados extends JFrame{
                 }
             }
         });
+
     }
 
-    public void listaDeHoras(){
-        int horas = 24;
-        for (int i=0;i<horas;i++){
-            txt_entrada.addItem(i);
-            txt_salida.addItem(i);
-        }
-    }
 
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -156,4 +157,35 @@ public class RegistroEmpleados extends JFrame{
         });
     }
 
+
+    //Método para agregar los items del 0 al 23 en el comboBox
+    public void listaDeHoras(){
+        int horas = 24;
+        for (int i=0;i<horas;i++){
+            txt_entrada.addItem(i);
+            txt_salida.addItem(i);
+        }
+    }
+
+    //Método para calcular las horas de trabajo
+    public void tiempoDeTrabajo(){
+        int hTotal = 0;
+        //Se Convierte de string a entero la opcion seleccionada del comboBox y se almacena en la variable "hEntrada" de tipo entero
+        int hEntrada = Integer.parseInt(txt_entrada.getSelectedItem().toString());
+        int hSalida = Integer.parseInt(txt_salida.getSelectedItem().toString());
+
+        //Cuando la hora de entrada es mayor a la de salida, significa que la jornada empezo en el dia actual, pero termino el siguiente
+        //Debido a que tenemos hasta 23 en el comboBox, se contaran las horas de ese dia y despues se suman las del otro día
+        if(hEntrada > hSalida){
+            int aux = 23 - hEntrada;  //Horas del primer día
+            //Se suman aux:primer día, hSalida: va de 0 hasta la salida que indico el empleado y el "1" es la hora faltante en lista de 23 a 24
+            hTotal = aux + hSalida + 1;
+            label_work.setText("Trabajo "+ hTotal + " horas.");
+        }else if(hEntrada < hSalida){  //Todas las horas se cumplen durante el mismo día
+            hTotal = hSalida - hEntrada;
+            label_work.setText("Trabajo "+ hTotal + " horas.");
+        }else {    //No hay ninguna diferencia entre horaros
+            label_work.setText("El empleado no trabajo");
+        }
+    }
 }
