@@ -8,6 +8,32 @@ En una base de datos, las entidades y atributos del mundo real, se convierten en
 Estas entidades pueden ser tanto objetos materiales como libros o fotografías, pero tambien personas e,
 incluso, conceptos o ideas abstractas.
 
+## Instalación y configuración de controlador(conector)
+
+Antes de comenzar el proyecto es necesario descargar un driver o controlador que MySQL pone a disposicion
+para poder establecer una conexión con sus bases de datos, se trabajara con la versión 5.1.46 ya que contiene
+lo necesario para este proyecto.
+
+[Link de descarga](https://mega.nz/file/oNg1iS6S#9ZHqcUZWffy8RiLmBPpS-R3hiLp-U7RugiE6dcr3S2c)
+
+Una vez concluida la descarga:
+- Descomprimir el archivo.
+- Ingresar a la carpeta obtenida, en la cual se podran observar 2 archivos de tipo "jar", pero se selecciona
+  el que no termina en "bin" y se copia.
+- Posteriormente se creara un nuevo proyecto en el IDE de nuestra preferencia, al cual llamaremos
+  "BD_Alumnos" y dentro agregaremos un paquete llamado "Ventanas", en el cual se creara un JFrame Form con el
+  nombre de "RegistroAlumnos".
+- Ahora nos dirijimos a la ruta donde se encuentra la carpeta del proyecto desde los documentos de nuestra
+  PC, en mi caso "IdeaProjects" y despues ingreso a "CursoJava".
+- Se creara una carpeta con el nombre de "driver-conector" y dentro se pegara el archivo jar,
+  "mysql-connector-java-5.1.46", que se descargo para establecer conexión con las bases de datos. Se hara esto
+  para tenerlo siempre a la mano en el paquete en el que se esta agregando.
+
+- Despues regresaremos al IDE con el que estamos trabajando para agregar el driver a nuestro proyecto, por
+  lo que daremos click derecho en la carpeta "driver-conector" y seleccionaremos la opción "Add as Library",
+  para pasar a diseñar el panel de Altas y consultas.
+
+
 ## ¿Que es XAMPP?
 
 Es un paquete de software libre que consiste principalmente en el sistema de gestion de base de datos
@@ -87,3 +113,6 @@ que mas adelante concectaremos con nuestros desarrollos en java.
   mediante la conección de los programas desarrollados en Java.
 
 ![](img/8BaseDeDatosLista.png)
+
+
+
