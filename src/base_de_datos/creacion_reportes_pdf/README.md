@@ -1,4 +1,4 @@
-#Librería "ITEXT"
+# Librería "ITEXT"
 
 Es una librería de código abierto la cual nos va a permitir generar y manipular archivos en formato PDF
 a través de java.
@@ -12,7 +12,7 @@ de lo contrario, si el proyecto es gratuito o de código abierto, se puede utili
 ## Instalación y configuración de controlador(conector)
 
 Antes de comenzar el proyecto es necesario descargar el driver con la verisión itext5-5.5.12. Una vez
-descargado:
+descargado, realizar los siguientes pasos para instalar adecuadamente:
 - Dar doble click en el archivo de tipo WinRar que se descargo, para que nos muestre su contenido.
 - Buscar el archivo "itext5-itextpdf-5.5.12.jar" y lo arratramos fuera de la ventana.
 - Copiamos el archivo y lo pegamos en la carpeta donde esta nuestro proyecto, al igual que con driver-connector.
