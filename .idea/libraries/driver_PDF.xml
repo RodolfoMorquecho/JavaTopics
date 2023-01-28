@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="driver-PDF">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/driver-PDF" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/driver-PDF" recursive="false" />
+  </library>
+</component>
