@@ -39,7 +39,7 @@
         </initial-values>
       </item>
       <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.png" removable="false" auto-create-binding="true" can-attach-label="true">
-        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+        <default-constraints vsize-policy="0" hsize-policy="1" anchor="8" fill="0">
           <preferred-size width="150" height="-1" />
         </default-constraints>
       </item>
