@@ -149,7 +149,7 @@ public class RegistroEstudiante extends JFrame{
                     //Lo que se guardara en la variable sera la ruta que nos da acceso a la carpeta de usuario de la computadora
                     //donde se este ejecutando el programa, es decír, la ruta que aparece al abrir el simbolo de sistema de la PC
                     //Con esta ruta podemos indicar en que parte(Escritorio, Documentos, etc.) queremos guardar los archivos PDF
-                    String ruta = System.getProperty("uset.home");
+                    String ruta = System.getProperty("user.home");
 
                     //Crear línea de código para indicar al programa donde va a guardar el archivo y cual sera el nombre:
 
