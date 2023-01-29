@@ -1,9 +1,12 @@
 package base_de_datos.creacion_reportes_pdf;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.*;
+import javax.print.attribute.standard.ReferenceUriSchemesSupported;
 import javax.swing.*;
 
 //Import que daran acceso a las clases que nos proporciona "ITEXT", se agregaran manualmente ya que no pertenecen al JDK e Intellij no las agregara
@@ -158,8 +161,55 @@ public class RegistroEstudiante extends JFrame{
 
                     //Se creara el archivo en el escritorio y tendra el nombre de "Reporte_Estudiantes.pdf"
                     PdfWriter.getInstance(documento,new FileOutputStream(ruta + "/Desktop/Reporte_Estudiantes.pdf"));
-                }catch (Exception exception){
 
+                    //Abrir objeto de tipo "Document"
+                    documento.open();  //Se abrira con el método "open()"
+
+                    //Indicar al programa que se creara una tabla dentro del documento en formato PDF, todos los valores o información
+                    //que se obtendra de la base de datos se guardara dentro de esta tabla.
+
+                    //Se creara un objeto de la clase "PdfPTable" al cual se le pasara como parametro el unmero de columnas de la tabla
+                    PdfPTable tabla = new PdfPTable(3);  //ID - NombreEstudiante - Grupo
+
+                    //Asignar un titulo a cada columna(Dentro del archivo PDF, no en base de datos) para identificar que contiene cada columnas
+                    //El método "addCell()" permite insertar elementos(en este caso texto) dentro de los registros de las columnas
+                    tabla.addCell("Código");  //Puede poner cualquier nombre
+                    tabla.addCell("Nombre de Estudiante");
+                    tabla.addCell("Grupo");
+
+                    //Ahora que se tiene listo el titulo de cada columna, se debe crear conexión con la base de datos
+                    try {
+                        Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_est","root","");
+                        //Instruccion a base de datos: "Seleccionar tod0 de la tabla estudiantes"
+                        PreparedStatement pst = cn.prepareStatement("select * from estudiantes");
+
+                        //Ejecutar las 2 lineas anteriores con la siguiente instruccion:
+                        ResultSet rs = pst.executeQuery();
+
+                        //Iniciar validación, para verificar que se encontraron los datos que buscamos
+                        if(rs.next()){  //Si se encontraron datos, continunar con la instriccion(ejecución) interna
+                            //Se vaciaran todos los datos de la tabla estudiantes dentro del archivo PDF
+                            //Por ende debemos de ciclar la condición "rs.next()" hasta obtener todos los registros
+                            do {
+                                //Para insertar los datos encontrados en base de datos en la tabla del PDF, usamos el método "addCell()"
+                                //Mediante "rs.getString()" Obtendremos el valor encontrado en el numero de columna indicado en el parentesis
+                                tabla.addCell(rs.getString(1));  //En la bd, encontrara los "ID" en la columna 1
+                                tabla.addCell(rs.getString(2));  //En la bd, encontrara "NombreEstudiante" en columna 2
+                                tabla.addCell(rs.getString(3));  //En la bd, encontrara "Grupo" en columna 3
+                            }while(rs.next());  //Mientras se sigan encontrando datos, se repetira la instruccion dentro de "do"
+
+                            //Cuando se termine de obtener todos los registros de la base de datos, se guardan en el objeto de tipo "Document"
+                            documento.add(tabla);  //El objeto tabla contiene todos los registros ordenados por columnas
+                        }
+                    }catch (DocumentException | SQLException exception){
+                    }
+
+                    //Cada que se abre un documento, en algun punto se debe cerrar. Ya que tenemos toda la informacion necesaria.
+                    documento.close();  //Con el método close() cerramos el documento
+
+                    //Mensaje en ventana para indicar que el reporte esta listo
+                    JOptionPane.showMessageDialog(null,"Reorte creado.");
+                }catch (DocumentException | HeadlessException | FileNotFoundException exception){
                 }
             }
         });
