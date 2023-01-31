@@ -121,6 +121,7 @@ public class RegistroEstudiante extends JFrame{
                     PreparedStatement pst = cn.prepareStatement("delete from estudiantes where ID = ?");
 
                     pst.setString(1,txt_buscar.getText().trim());
+                    pst.executeUpdate();
 
                     //Limpiar campos
                     txt_nombre.setText("");
@@ -208,7 +209,7 @@ public class RegistroEstudiante extends JFrame{
                     documento.close();  //Con el método close() cerramos el documento
 
                     //Mensaje en ventana para indicar que el reporte esta listo
-                    JOptionPane.showMessageDialog(null,"Reorte creado.");
+                    JOptionPane.showMessageDialog(null,"Reporte creado.");
                 }catch (DocumentException | HeadlessException | FileNotFoundException exception){
                 }
             }
