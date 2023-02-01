@@ -1,4 +1,4 @@
-package base_de_datos.creacion_reportes_pdf;
+package base_de_datos.creacion_reportes_pdf.simple;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.*;
-import javax.print.attribute.standard.ReferenceUriSchemesSupported;
 import javax.swing.*;
 
 //Import que daran acceso a las clases que nos proporciona "ITEXT", se agregaran manualmente ya que no pertenecen al JDK e Intellij no las agregara
@@ -33,6 +32,7 @@ public class RegistroEstudiante extends JFrame{
         setTitle("Generador de reportes estudiantil");  //Titulo de interfaz
         setBounds(0,0,600,450);  //Medidas de interfaz
         setLocationRelativeTo(null);  //Centrar interfaz
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         //Registrar - Create
         btnRegistrar.addActionListener(new ActionListener() {
