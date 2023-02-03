@@ -14,6 +14,14 @@ import  com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+//Import para integrar imagenes al formato PDF
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.BaseColor;  //Para dar un color al texto
+import com.itextpdf.text.Font;
+
 public class RegistroAlumnos extends JFrame{
     private JTextField txt_nombre;
     private JTextField txt_grupo;
@@ -139,6 +147,8 @@ public class RegistroAlumnos extends JFrame{
         //9. Crear objeto de tipo ResultSet para verificar si se encuentra el ID, asignandole la ejecución a base de datos
         //10. En caso de encontrar valores en la base de datos, crear algoritmo para llenar las celdas con la informaccion en orden
         //11. Agregar la tabla al archivo
+        //12. Cerrar documento
+
         btnReportes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,6 +156,8 @@ public class RegistroAlumnos extends JFrame{
                 try {
                     String ruta = System.getProperty("user.home");
                     PdfWriter.getInstance(documento,new FileOutputStream(ruta + "/Desktop/Reporte_Alumnos.pdf"));
+
+                    //Código que permite insertar la imagen dentro del documento
 
                     documento.open();  //Abrir el documento
 
