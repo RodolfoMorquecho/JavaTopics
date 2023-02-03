@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.*;
 import javax.swing.*;
 
@@ -157,9 +158,43 @@ public class RegistroAlumnos extends JFrame{
                     String ruta = System.getProperty("user.home");
                     PdfWriter.getInstance(documento,new FileOutputStream(ruta + "/Desktop/Reporte_Alumnos.pdf"));
 
-                    //Código que permite insertar la imagen dentro del documento
+                    //FORMATO DE TEXTO E INSERCION DE IMAGENES
+
+                    //Código que permite insertar la imágen dentro del documento    //Ruta donde se encuentra la imágen
+                    Image header = Image.getInstance("src/base_de_datos/creacion_reportes_pdf/formato_e_imagenes/img/header.png");
+
+                    //Agregar las dimensiones de la imágen
+                    header.scaleToFit(650,1000);  //Ancho:650px, Largo:1000. El largo va de 0 a 1000, usaremos lo mas grnade.
+
+                    //Alinear la imagen(objeto header)
+                    //Mediante la clase Chunk se puede buscar un método segun el tipo de alineación que se quiera dar(cener, justified, bottom)
+                    header.setAlignment(Chunk.ALIGN_CENTER);  //Para esta ocasión se alineara al centro
+
+                    //Formaro de texto
+                    Paragraph parrafo = new Paragraph();  //Crear objeto de clase Paragraph
+
+                    //Alinear texto: para alinear texto se utiliza Paragraph y no Chunk(imágen)
+                    parrafo.setAlignment(Paragraph.ALIGN_CENTER);  //Se alineara al centro el texto
+
+                    //Agregar frase o texto que se quiere poner dentro del documento en PDF
+                    parrafo.add("Formato creado por RodolfoMorquecho ® \n\n ");
+
+                    //Agregar formato al texto(Tipo de fuente, tamaño, estilo y color)
+                    //Se van asignar los requerimientos al texto mediante el método setFont(), el cual recibira como parametros:
+                    //La clase "FontFactory" que recuperara a su vez los parametros mediante el método "getFont"
+                    //Tipo de letra  |  Tamaño  |  Estilo  |  Color
+                    parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.BLACK));
+
+                    //Titulo de la tabla
+                    parrafo.add("Alumnos registrados \n\n");
+
+                    //Indicar al programa que se deben de agregar la imagen y el texto al documento, despues de la apertura del documento
 
                     documento.open();  //Abrir el documento
+
+                    //Se agregam imagen y parrafo al documento
+                    documento.add(header);
+                    documento.add(parrafo);
 
                     PdfPTable tabla = new PdfPTable(3);  //Crear tabla con 3 columnas
                     tabla.addCell("Código");  //Titulo para la primer columna
@@ -183,12 +218,15 @@ public class RegistroAlumnos extends JFrame{
                             documento.add(tabla);  //Se agrega la tabla llenada con info de la base de datos al documento pdf
                         }
                     }catch (DocumentException | SQLException exception){
+                        System.out.println("Error de conexion "+ exception);
                     }
                     documento.close();  //Se cierra la edicion del documento
 
                     JOptionPane.showMessageDialog(null,"Reporte creado.");  //Mensaje para informar que el pdf esta listo
                 }catch (DocumentException | FileNotFoundException | HeadlessException exception){
-
+                    System.out.println("Error en PDF "+ exception);
+                }catch (IOException exception){  //E necesario agregar esta excepción para quitar el error marcado al crear la instancia de la imágen
+                    System.out.println("Error en la imagen: "+ exception);
                 }
             }
         });

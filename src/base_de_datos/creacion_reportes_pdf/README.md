@@ -7,9 +7,9 @@ a través de java.
 se crean proyectos para comercializar u obtener ingresos, ITEXT pide que se adquiera una licencia,
 de lo contrario, si el proyecto es gratuito o de código abierto, se puede utilizar la versión gratuita.
 
-[Link de descarga | Versión itext5-5.5.12](https://mega.nz/file/lJozxCDb#siW6qarBVy8etqnBTIEkC8fCqkgsOAcu4gysK41GFNc)
+- [Link de descarga | Versión itext5-5.5.12](https://mega.nz/file/lJozxCDb#siW6qarBVy8etqnBTIEkC8fCqkgsOAcu4gysK41GFNc)
 
-[Documentación de la biblioteca ITEXT](https://api.itextpdf.com/iText5/java/5.5.12/)
+- [Documentación de la biblioteca ITEXT](https://api.itextpdf.com/iText5/java/5.5.12/)
 ## Instalación y configuración de controlador(conector)
 
 Antes de comenzar el proyecto es necesario descargar el driver con la verisión itext5-5.5.12. Una vez
