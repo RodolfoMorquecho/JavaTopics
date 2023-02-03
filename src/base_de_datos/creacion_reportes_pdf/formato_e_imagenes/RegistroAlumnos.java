@@ -1,9 +1,18 @@
 package base_de_datos.creacion_reportes_pdf.formato_e_imagenes;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.*;
 import javax.swing.*;
+
+//Import que daran acceso a las clases que nos proporciona "ITEXT", se agregaran manualmente ya que no pertenecen al JDK e Intellij no las agregara
+import com.itextpdf.text.Document;
+import  com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class RegistroAlumnos extends JFrame{
     private JTextField txt_nombre;
@@ -128,10 +137,47 @@ public class RegistroAlumnos extends JFrame{
         //7. Conectar a base de datos
         //8. Instruccion a la base de datos: "Seleccionar tod0 de la tabla alumnos"
         //9. Crear objeto de tipo ResultSet para verificar si se encuentra el ID, asignandole la ejecución a base de datos
+        //10. En caso de encontrar valores en la base de datos, crear algoritmo para llenar las celdas con la informaccion en orden
+        //11. Agregar la tabla al archivo
         btnReportes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Document documento = new Document();  //Objeto de la clase Document
+                try {
+                    String ruta = System.getProperty("user.home");
+                    PdfWriter.getInstance(documento,new FileOutputStream(ruta + "/Desktop/Reporte_Alumnos.pdf"));
 
+                    documento.open();  //Abrir el documento
+
+                    PdfPTable tabla = new PdfPTable(3);  //Crear tabla con 3 columnas
+                    tabla.addCell("Código");  //Titulo para la primer columna
+                    tabla.addCell("Nombre de Alumno");  //Titulo para la segunda columna
+                    tabla.addCell("Grupo");
+
+                    //Conexxión a base de datos
+                    try {
+                        Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_esc","root","");
+                        PreparedStatement pst = cn.prepareStatement("select * from alumnos");
+
+                        ResultSet rs = pst.executeQuery();  //Verificar si se encuentran los datos al ejecutar la instruccion a bd
+
+                        if(rs.next()){  //Si "rs" contiene 1 o mas registros encontrados
+                            do {  //Ejecutara la siguinente instrccion:
+                                tabla.addCell(rs.getString(1));  //Agrega el ID en la columna 1, es donde corresponden
+                                tabla.addCell(rs.getString(2));
+                                tabla.addCell(rs.getString(3));  //Agrega el grupo en columna 3
+                            }while (rs.next());  //Mientras rs encuentre un registro en la base de datos
+
+                            documento.add(tabla);  //Se agrega la tabla llenada con info de la base de datos al documento pdf
+                        }
+                    }catch (DocumentException | SQLException exception){
+                    }
+                    documento.close();  //Se cierra la edicion del documento
+
+                    JOptionPane.showMessageDialog(null,"Reporte creado.");  //Mensaje para informar que el pdf esta listo
+                }catch (DocumentException | FileNotFoundException | HeadlessException exception){
+
+                }
             }
         });
     }
