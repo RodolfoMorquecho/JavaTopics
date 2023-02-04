@@ -11,7 +11,7 @@ import javax.swing.*;
 
 //Import que daran acceso a las clases que nos proporciona "ITEXT", se agregaran manualmente ya que no pertenecen al JDK e Intellij no las agregara
 import com.itextpdf.text.Document;
-import  com.itextpdf.text.DocumentException;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -33,10 +33,10 @@ public class RegistroAlumnos extends JFrame{
     private JTextField txt_buscar;
     private JButton btnBuscar;
     private JLabel label_status;
-    private JPanel mainPanel2;
+    private JPanel mainPanel;
 
     public RegistroAlumnos(){
-        setContentPane(mainPanel2);
+        setContentPane(mainPanel);
         setBounds(0,0,600,450);
         setTitle("Generador de reportes");
         setLocationRelativeTo(null);
@@ -48,7 +48,7 @@ public class RegistroAlumnos extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 try {
                     Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_esc","root","");
-                    PreparedStatement pst = cn.prepareStatement("insertt into alumnos values(?,?,?)");
+                    PreparedStatement pst = cn.prepareStatement("insert into alumnos values(?,?,?)");
 
                     pst.setString(1,"0");
                     pst.setString(2,txt_nombre.getText().trim());
@@ -158,6 +158,7 @@ public class RegistroAlumnos extends JFrame{
                     String ruta = System.getProperty("user.home");
                     PdfWriter.getInstance(documento,new FileOutputStream(ruta + "/Desktop/Reporte_Alumnos.pdf"));
 
+                    //--------------------------------------------------------------------------------------------------
                     //FORMATO DE TEXTO E INSERCION DE IMAGENES
 
                     //Código que permite insertar la imágen dentro del documento    //Ruta donde se encuentra la imágen
@@ -189,6 +190,7 @@ public class RegistroAlumnos extends JFrame{
                     parrafo.add("Alumnos registrados \n\n");
 
                     //Indicar al programa que se deben de agregar la imagen y el texto al documento, despues de la apertura del documento
+                    //--------------------------------------------------------------------------------------------------
 
                     documento.open();  //Abrir el documento
 
@@ -231,7 +233,6 @@ public class RegistroAlumnos extends JFrame{
             }
         });
     }
-
 
 
     public static void main(String[] args){
