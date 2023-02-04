@@ -24,3 +24,8 @@ contiene todos los regitros ordenados dentro de una tabla con las 3 columnas que
 los 3 tipos de datos que se requieren para registrar un estudiante(ID, NombreEstudiante, Grupo).
 
 ![](steps/3GenerarReporteEnEscritorio.png)
+
+- Podemos observar que el documento tiene un formato de texto(tipo de fuente, tamaño, color, etc.)
+y tiene una imágen en el encabezado de la página, a comparación de la creación del reporte simple.
+
+![](steps/4ArchivoDeReporteConFormato.png)
