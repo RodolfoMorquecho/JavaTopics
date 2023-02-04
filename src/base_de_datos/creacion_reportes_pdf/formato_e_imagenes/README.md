@@ -19,9 +19,9 @@ de escritura, dato o valor, se realiza una modificación.
 - En caso de tener algun registro que no necesitamos, simplemente se elimina.
 
 - Cuando ya se tienen todos los registros listos, solo presionamos el botón "Generar reporte", 
-el cual nos crea un archivo llamado "Reporte_Estudiantes.pdf" en el escritorio. Este reporte
+el cual nos crea un archivo llamado "Reporte_Alumnos.pdf" en el escritorio. Este reporte
 contiene todos los regitros ordenados dentro de una tabla con las 3 columnas que separan 
-los 3 tipos de datos que se requieren para registrar un estudiante(ID, NombreEstudiante, Grupo).
+los 3 tipos de datos que se requieren para registrar un estudiante(ID, NombreAlumno, Grupo).
 
 ![](steps/3GenerarReporteEnEscritorio.png)
 
