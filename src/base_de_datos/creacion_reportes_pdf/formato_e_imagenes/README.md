@@ -29,3 +29,7 @@ los 3 tipos de datos que se requieren para registrar un estudiante(ID, NombreAlu
 y tiene una imágen en el encabezado de la página, a comparación de la creación del reporte simple.
 
 ![](steps/4ArchivoDeReporteConFormato.png)
+
+- Código para dar formato al texto e insertar imagenes al documento:
+
+![](steps/5CodigoParaDarFormato.png)
