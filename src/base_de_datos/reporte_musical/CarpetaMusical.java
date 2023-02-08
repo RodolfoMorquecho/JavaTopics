@@ -4,10 +4,12 @@ package base_de_datos.reporte_musical;
 //Tabla: artistas
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -174,7 +176,24 @@ public class CarpetaMusical extends JFrame{
                     String ruta = System.getProperty("user.home");
                     PdfWriter.getInstance(documento,new FileOutputStream(ruta + "/Desktop/ListaMusical.pdf"));
 
+                    //FORMATO DE TEXTO E INSERCION DE IMAGENES
+                    Image header = Image.getInstance("src/base_de_datos/reporte_musical/img/black_header.png");
+                    header.scaleToFit(650,1000);
+                    header.setAlignment(Chunk.ALIGN_CENTER);
+
+                    Paragraph parrafo = new Paragraph();
+                    parrafo.setAlignment(Paragraph.ALIGN_CENTER);
+                    parrafo.add("Formato creado por @RodolfoMorquecho \n\n");
+
+                    parrafo.setFont(FontFactory.getFont("Tahoma",Font.BOLD,18,BaseColor.BLACK));
+                    parrafo.add("Lista de artistas \n\n");  //titulo de la tabla 
+
+
+                    //Transladod de información de base de datos a documento pdf
                     documento.open();
+
+                    documento.add(header);  //Agregar imágen al documento
+                    documento.add(parrafo);  //Agregar titulo de tabla al documento
 
                     PdfPTable tabla = new PdfPTable(6);
                     tabla.addCell("Código");
@@ -209,7 +228,9 @@ public class CarpetaMusical extends JFrame{
                     documento.close();  //Se cierra el documento, ya que se termino la edición
                     JOptionPane.showMessageDialog(null,"Lista musical creada.");
 
-                }catch (DocumentException | FileNotFoundException exception){
+                }catch (DocumentException | FileNotFoundException | HeadlessException exception){
+
+                }catch (IOException exception){
 
                 }
             }
