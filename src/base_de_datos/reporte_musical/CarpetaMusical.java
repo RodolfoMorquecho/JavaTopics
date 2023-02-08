@@ -19,6 +19,13 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.PdfPTable;
 
+//Import para integrar imagenes al formato PDF
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.BaseColor;  //Para dar un color al texto
+import com.itextpdf.text.Font;
 
 public class CarpetaMusical extends JFrame{
     private JPanel panel1;
