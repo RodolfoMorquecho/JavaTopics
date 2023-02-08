@@ -6,9 +6,18 @@ package base_de_datos.reporte_musical;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
+//Import que daran acceso a las clases que nos proporciona "ITEXT"
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.PdfPTable;
 
 
 public class CarpetaMusical extends JFrame{
@@ -153,7 +162,49 @@ public class CarpetaMusical extends JFrame{
         btnReporte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Document documento = new Document();
+                try {
+                    String ruta = System.getProperty("user.home");
+                    PdfWriter.getInstance(documento,new FileOutputStream(ruta + "/Desktop/ListaMusical.pdf"));
 
+                    documento.open();
+
+                    PdfPTable tabla = new PdfPTable(6);
+                    tabla.addCell("Código");
+                    tabla.addCell("Artista");
+                    tabla.addCell("Género");
+                    tabla.addCell("País");
+                    tabla.addCell("1° Album");
+                    tabla.addCell("Núm. de Albums");
+
+                    try {
+                        Connection cn = Conexion.conectar();
+                        PreparedStatement pst = cn.prepareStatement("select * from artistas");  //seleccionar tod0 de la tabla artistas
+
+                        ResultSet rs = pst.executeQuery();
+
+                        if(rs.next()){
+                            do {
+                                tabla.addCell(rs.getString(1));
+                                tabla.addCell(rs.getString(2));
+                                tabla.addCell(rs.getString(3));
+                                tabla.addCell(rs.getString(4));
+                                tabla.addCell(rs.getString(5));
+                                tabla.addCell(rs.getString(6));
+                            }while (rs.next());  //Mientras exista una fila con info de algun artista, se repetira la inserción en el doc.
+
+                            documento.add(tabla);  //Añadir la tabla con toda la información al objeto de tipo Document
+                        }
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+
+                    documento.close();  //Se cierra el documento, ya que se termino la edición
+                    JOptionPane.showMessageDialog(null,"Lista musical creada.");
+
+                }catch (DocumentException | FileNotFoundException exception){
+
+                }
             }
         });
     }
