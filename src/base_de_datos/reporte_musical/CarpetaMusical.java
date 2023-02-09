@@ -30,7 +30,7 @@ import com.itextpdf.text.BaseColor;  //Para dar un color al texto
 import com.itextpdf.text.Font;
 
 public class CarpetaMusical extends JFrame{
-    private JPanel panel1;
+    public JPanel panel1;  //El acceso sera publico, para poder utilizarlo en la clase "Principal"
     private JTextField txt_nombre;
     private JTextField txt_genero;
     private JTextField txt_pais;
@@ -51,6 +51,7 @@ public class CarpetaMusical extends JFrame{
         eliminarArtista();
         generarReporteDeLista();
     }
+
 
     //                                                  CÓDIGO DE LOS BOTONES
 
@@ -185,11 +186,11 @@ public class CarpetaMusical extends JFrame{
                     parrafo.setAlignment(Paragraph.ALIGN_CENTER);
                     parrafo.add("Formato creado por @RodolfoMorquecho \n\n");
 
-                    parrafo.setFont(FontFactory.getFont("Tahoma",Font.BOLD,18,BaseColor.BLACK));
-                    parrafo.add("Lista de artistas \n\n");  //titulo de la tabla 
+                    parrafo.setFont(FontFactory.getFont("Tahoma",18,Font.BOLD,BaseColor.BLACK));
+                    parrafo.add("Lista de artistas \n\n");  //titulo de la tabla
 
 
-                    //Transladod de información de base de datos a documento pdf
+                    //Translado de información de base de datos a documento pdf
                     documento.open();
 
                     documento.add(header);  //Agregar imágen al documento
@@ -236,6 +237,7 @@ public class CarpetaMusical extends JFrame{
             }
         });
     }
+
 
     //Método que se reutilizara para limpiar los campos de la interfaz
     private void limpiezaDeInterfaz(){

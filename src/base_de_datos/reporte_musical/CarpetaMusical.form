@@ -250,7 +250,7 @@
         </constraints>
         <properties>
           <font name="Tahoma" size="12" style="1"/>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="3e0a" class="javax.swing.JLabel">
