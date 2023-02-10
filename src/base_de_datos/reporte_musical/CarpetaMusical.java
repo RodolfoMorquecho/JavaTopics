@@ -182,19 +182,23 @@ public class CarpetaMusical extends JFrame{
                     header.scaleToFit(650,1000);
                     header.setAlignment(Chunk.ALIGN_CENTER);
 
-                    Paragraph parrafo = new Paragraph();
-                    parrafo.setAlignment(Paragraph.ALIGN_CENTER);
-                    parrafo.add("Formato creado por @RodolfoMorquecho \n\n");
+                    Paragraph parrafo1 = new Paragraph();
+                    parrafo1.setAlignment(Paragraph.ALIGN_RIGHT);
+                    parrafo1.setFont(FontFactory.getFont("Tahoma",10,Font.NORMAL,BaseColor.BLACK));
+                    parrafo1.add("Formato creado por @RodolfoMorquecho \n\n");
 
-                    parrafo.setFont(FontFactory.getFont("Tahoma",18,Font.BOLD,BaseColor.BLACK));
-                    parrafo.add("Lista de artistas \n\n");  //titulo de la tabla
+                    Paragraph parrafo2 = new Paragraph();
+                    parrafo2.setAlignment(Paragraph.ALIGN_CENTER);
+                    parrafo2.setFont(FontFactory.getFont("Tahoma",16,Font.BOLD,BaseColor.BLACK));
+                    parrafo2.add("Lista de artistas \n\n");  //titulo de la tabla
 
 
                     //Translado de información de base de datos a documento pdf
                     documento.open();
 
                     documento.add(header);  //Agregar imágen al documento
-                    documento.add(parrafo);  //Agregar titulo de tabla al documento
+                    documento.add(parrafo1);  //Agregar titulo de tabla al documento
+                    documento.add(parrafo2);
 
                     PdfPTable tabla = new PdfPTable(6);
                     tabla.addCell("Código");
