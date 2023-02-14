@@ -14,9 +14,26 @@ public class Password {
 
     //Método que devuelve un booleano si es fuerte o no, para que sea fuerte debe tener mas de 2 mayúsculas, mas de 1 minúscula
     // y mas de 5 números.
-    /*public boolean esFuerte(){
+    public boolean esFuerte(String clave){
+        int contNum = 0, contMin = 0, contMay = 0;
 
-    }*/
+        for (int i=0; i<clave.length(); i++){  //Recorre el largo de la contraeña, caracter por caracter
+            //Se usara el codigo ASCII, los numeros del 0 al 9 se ubican del caracter 48 al 57
+            if (clave.charAt(i) >= 47 && clave.charAt(i) <= 58){  //Condicional al que se accede si los caracteres estan entre 47 y 58 ASCII
+                contNum++;  //Aumenta el contador de los numeros
+            }else if (clave.charAt(i) >= 96 && clave.charAt(i) <= 123){  //Condicional para determinar si se trata de una letra minuscula
+                contMin++;  //Aumenta el contador que las minusculas
+            }else if (clave.charAt(i) >= 64 && clave.charAt(i) <=91){
+                contMay++;  ////Aumenta el contador que las mayusculas
+            }
+        }
+        System.out.println("Numeros:"+contNum+"  Minusculas:"+contMin +"  Mayusculas:"+ contMay +"\n");
+        if (contNum > 5 && contMin > 1 && contMay > 2){
+            return true;
+        }else {
+            return false;
+        }
+    }
 
     //Método que genera la contraseña del objeto con la longitud que tenga.
 
@@ -26,6 +43,7 @@ public class Password {
     public String generarPassword(){
         Random r = new Random();  //Crear objeto de tipo random
         int numAleatorio = 0;  //Acumulara algun número entre 1 y 3 segun el objeto random
+
         String op_uno = "";
         char op_dos = ' ';
         char op_tres = ' ';
@@ -49,5 +67,14 @@ public class Password {
         return contrasenia;
     }
 
-    //Método set para longitud.
+    //Método set para longitud
+    public void setLongitud(int longitud) {
+        this.longitud = longitud;
+    }
+
+    //Método get para longitud
+    public int getLongitud(){
+        return longitud;
+    }
+
 }

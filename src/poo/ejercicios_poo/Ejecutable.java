@@ -17,13 +17,19 @@ public class Ejecutable {
                 Password password = new Password();
                 System.out.println("<<<<< Contrasena generada: " + password.generarPassword() +" >>>>>");
             }else if(opcion == 2){
-
                 System.out.print("Digita el numero de caracteres de tu contrasena: ");
                 tam = entrada.nextInt();
 
-                Password password = new Password(tam);
+                Password password2 = new Password(tam);
+                String clave = password2.generarPassword();  //Variable que contiene la contraseña generada por el método
+                System.out.println("<<<<< Contrasena generada: " + clave +" >>>>>");
+                boolean nivel = password2.esFuerte(clave);
+                if (nivel == true){
+                    System.out.println("El nivel de seguridad es alto");
+                }else {
+                    System.out.println("El nivel de seguridad es bajo");
+                }
 
-                System.out.println("<<<<< Contrasena generada: " + password.generarPassword() +" >>>>>");
             }else {
                 System.out.println("Opcion invalida \n");
             }
