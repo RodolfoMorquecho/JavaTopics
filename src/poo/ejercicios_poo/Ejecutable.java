@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Ejecutable {
     public static void main(String[] args) {
         int tam = 0, opcion = 0;
+        String resp = "";
+
         Scanner entrada = new Scanner(System.in);
         do {
             System.out.print("\t\t Tamano de contrasena \n\n" +
@@ -17,18 +19,24 @@ public class Ejecutable {
                 Password password = new Password();
                 System.out.println("<<<<< Contrasena generada: " + password.generarPassword() +" >>>>>");
             }else if(opcion == 2){
-                System.out.print("Digita el numero de caracteres de tu contrasena: ");
-                tam = entrada.nextInt();
+                
+                do {
+                    System.out.print("Digita el numero de caracteres de tu contrasena: ");
+                    tam = entrada.nextInt();
 
-                Password password2 = new Password(tam);
-                String clave = password2.generarPassword();  //Variable que contiene la contraseña generada por el método
-                System.out.println("<<<<< Contrasena generada: " + clave +" >>>>>");
-                boolean nivel = password2.esFuerte(clave);
-                if (nivel == true){
-                    System.out.println("El nivel de seguridad es alto");
-                }else {
-                    System.out.println("El nivel de seguridad es bajo");
-                }
+                    Password password2 = new Password(tam);
+                    String clave = password2.generarPassword();  //Variable que contiene la contraseña generada por el método
+                    System.out.println("<<<<< Contrasena generada: " + clave +" >>>>>");
+                    boolean nivel = password2.esFuerte(clave);
+                    if (nivel == true){
+                        System.out.println("El nivel de seguridad es alto");
+                    }else {
+                        System.out.println("El nivel de seguridad es bajo");
+                    }
+
+                    System.out.println("Quieres generar una nueva contrasena? s/n");
+                    resp = entrada.next();
+                }while (resp == "s");
 
             }else {
                 System.out.println("Opcion invalida \n");
