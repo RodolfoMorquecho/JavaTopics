@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Ejecutable {
     public static void main(String[] args) {
         int tam = 0, opcion = 0;
-        String resp = "";
 
         Scanner entrada = new Scanner(System.in);
         do {
@@ -19,7 +18,7 @@ public class Ejecutable {
                 Password password = new Password();
                 System.out.println("<<<<< Contrasena generada: " + password.generarPassword() +" >>>>>");
             }else if(opcion == 2){
-                
+                String resp = "";
                 do {
                     System.out.print("Digita el numero de caracteres de tu contrasena: ");
                     tam = entrada.nextInt();
@@ -36,10 +35,10 @@ public class Ejecutable {
 
                     System.out.println("Quieres generar una nueva contrasena? s/n");
                     resp = entrada.next();
-                }while (resp == "s");
+                }while (resp.equals("s"));
 
             }else {
-                System.out.println("Opcion invalida \n");
+                System.out.println("XXXX Opcion invalida XXXX \n");
             }
         }while (opcion<1 || opcion>2);
     }
