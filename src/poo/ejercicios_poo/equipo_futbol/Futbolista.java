@@ -39,4 +39,13 @@ public class Futbolista extends Persona{
             return false;
         }
     }
+
+
+    //Métodos de interface
+
+    @Override
+    public void concentrarse(){
+        System.out.print("El jugador "+ nombre +" de la seleccion ##### debe de concentrarse en el hotel"
+                + " previo a su juego del día de maniana");
+    }
 }
