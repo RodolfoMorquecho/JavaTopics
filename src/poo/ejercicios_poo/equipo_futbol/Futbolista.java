@@ -12,6 +12,9 @@ public class Futbolista extends Persona{
         this.dorsal = dorsal;
     }
 
+    //Objeto para acceder a los metodos de la clase padre
+    Persona datos = new Persona();
+
     //Setters y Getters
 
     public String getPosicion(){
@@ -19,7 +22,7 @@ public class Futbolista extends Persona{
     }
 
     public boolean setPosicion(String pos){
-        if(!pos.isEmpty){
+        if(!pos.isEmpty()){
             posicion = pos;
             return true;
         }else{
@@ -32,7 +35,7 @@ public class Futbolista extends Persona{
     }
 
     public boolean setDorsal(int Dorsal){
-        if(!dorsal.isEmpty()){
+        if(dorsal > 0){
             this.dorsal = dorsal;
             return true;
         }else{
@@ -45,7 +48,7 @@ public class Futbolista extends Persona{
 
     @Override
     public void concentrarse(){
-        System.out.print("El jugador "+ nombre +" de la seleccion ##### debe de concentrarse en el hotel"
+        System.out.print("El jugador "+ datos.getNombre() +" de la seleccion ##### debe de concentrarse en el hotel"
                 + " previo a su juego del día de maniana");
     }
 }

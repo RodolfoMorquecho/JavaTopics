@@ -46,7 +46,7 @@ public class Persona {
     }
 
     public boolean setEdad(int edad){
-        if(!edad.isEmpty()){
+        if(edad > 0){
             this.edad = edad;
             return true;
         }else{
