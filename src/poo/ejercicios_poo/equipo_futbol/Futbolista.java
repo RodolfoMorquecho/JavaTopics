@@ -1,6 +1,6 @@
 package poo.ejercicios_poo.equipo_futbol;
 
-public class Futbolista extends Persona{
+public class Futbolista extends Persona implements AccionesFutbolista{
     String posicion;
     int dorsal;
 
@@ -50,5 +50,20 @@ public class Futbolista extends Persona{
     public void concentrarse(){
         System.out.print("El jugador "+ datos.getNombre() +" de la seleccion ##### debe de concentrarse en el hotel"
                 + " previo a su juego del día de maniana");
+    }
+
+    @Override
+    public void viajar() {
+
+    }
+
+    @Override
+    public void jugarPartido() {
+
+    }
+
+    @Override
+    public void entrenar() {
+
     }
 }
