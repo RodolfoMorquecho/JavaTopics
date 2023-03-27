@@ -67,11 +67,11 @@ public class Futbolista extends Persona implements AccionesFutbolista{
 
     @Override
     public void jugarPartido() {
-
+        System.out.print("Si el entrenador decide alinear desde el inicio al jugador "+ getNombre() + " podria jugar 90+ min");
     }
 
     @Override
     public void entrenar() {
-
+        System.out.print("Todos los dias previos al siguiente partido, el jugador entrenara por al menos 5 horas");
     }
 }
