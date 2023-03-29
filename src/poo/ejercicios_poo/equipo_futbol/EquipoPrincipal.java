@@ -19,5 +19,11 @@ public class EquipoPrincipal {
         jugador2.informacionPersonal();
         System.out.println("\n");
         jugador2.viajar();
+
+        Futbolista jugador3 = new Futbolista("Ozil","Masculino",38,"Medio",18);
+        System.out.println("\n");
+        jugador3.informacionPersonal();
+        System.out.println("\n");
+        jugador3.jugarPartido();
     }
 }
