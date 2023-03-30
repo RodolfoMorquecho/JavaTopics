@@ -1,5 +1,7 @@
 package poo.ejercicios_poo.equipo_futbol;
 
+import java.util.jar.JarEntry;
+
 public class EquipoPrincipal {
     public static void main(String[] args) {
         Futbolista jugador = new Futbolista();
@@ -25,5 +27,16 @@ public class EquipoPrincipal {
         jugador3.informacionPersonal();
         System.out.println("\n");
         jugador3.jugarPartido();
+
+        Futbolista jugador4 = new Futbolista("Drogba","Masculino",42,"Delantero",9);
+        System.out.println("\n");
+        jugador4.informacionPersonal();
+        System.out.println("\n");
+        jugador4.jugarPartido();
+
+        //Ordenar edades de menor a mayor
+        //if(jugador.getEdad() <= jugador2.getEdad() || jugador.getEdad() <= jugador3.getEdad()){
+
+        //}
     }
 }
