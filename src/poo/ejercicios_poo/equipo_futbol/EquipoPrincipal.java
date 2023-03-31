@@ -4,16 +4,16 @@ import java.util.jar.JarEntry;
 
 public class EquipoPrincipal {
     public static void main(String[] args) {
-        Futbolista jugador = new Futbolista();
-        jugador.setNombre("Zlatan");
-        jugador.setSexo("Masculino");
-        jugador.setEdad(42);
-        jugador.setPosicion("Delantero");
-        jugador.setDorsal(22);
+        Futbolista jugador1 = new Futbolista();
+        jugador1.setNombre("Zlatan");
+        jugador1.setSexo("Masculino");
+        jugador1.setEdad(42);
+        jugador1.setPosicion("Delantero");
+        jugador1.setDorsal(22);
 
-        jugador.informacionPersonal();
+        jugador1.informacionPersonal();
         System.out.println("\n");
-        jugador.concentrarse();
+        jugador1.concentrarse();
 
 
         Futbolista jugador2 = new Futbolista("Shevchenko","Masculino",46,"Delantero",10);
@@ -35,8 +35,15 @@ public class EquipoPrincipal {
         jugador4.jugarPartido();
 
         //Ordenar edades de menor a mayor
-        //if(jugador.getEdad() <= jugador2.getEdad() || jugador.getEdad() <= jugador3.getEdad()){
+        int aux=0;
+        for(int i=0; i<5; i++){
+            if(jugador[i].getEdad() > jugador[i+1].getEdad()){
+                aux = jugador[i].getEdad();
+                jugador[i].getEdad() = jugador[i+1].getEdad();
+                jugador[i+1].getEdad() = jugador[i].getEdad();
 
-        //}
+                System.out.print(jugador[i].getEdad());
+            }
+        }
     }
 }
