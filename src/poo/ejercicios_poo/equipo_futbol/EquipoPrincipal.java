@@ -1,21 +1,31 @@
 package poo.ejercicios_poo.equipo_futbol;
 
+import java.util.Scanner;
 import java.util.jar.JarEntry;
 
 public class EquipoPrincipal {
     public static void main(String[] args) {
-        Futbolista jugador1 = new Futbolista();
-        jugador1.setNombre("Zlatan");
-        jugador1.setSexo("Masculino");
-        jugador1.setEdad(42);
-        jugador1.setPosicion("Delantero");
-        jugador1.setDorsal(22);
+        Futbolista [] jugador = new Futbolista;
 
-        jugador1.informacionPersonal();
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Cuantos jugadores tiene tu plantilla? ");  //11
+        int players = entrada.nextInt();
+
+        jugador = new Futbolista[players];
+
+        //Futbolista jugador[0] = new Futbolista();
+        jugador[0].setNombre("Zlatan");
+        jugador[0].setSexo("Masculino");
+        jugador[0].setEdad(42);
+        jugador[0].setPosicion("Delantero");
+        jugador[0].setDorsal(22);
+
+        jugador[0].informacionPersonal();
         System.out.println("\n");
-        jugador1.concentrarse();
+        jugador[0].concentrarse();
 
 
+        jugador[1] = new Futbolista("Schevchenko","Masculino",46,"Delantero",16);
         Futbolista jugador2 = new Futbolista("Shevchenko","Masculino",46,"Delantero",10);
         System.out.println("\n");
         jugador2.informacionPersonal();
@@ -34,9 +44,15 @@ public class EquipoPrincipal {
         System.out.println("\n");
         jugador4.jugarPartido();
 
+        Futbolista jugador5 = new Futbolista("Campos","Masculino",48,"Portero",1);
+        System.out.println("\n");
+        jugador5.informacionPersonal();
+        System.out.println("\n");
+        jugador5.jugarPartido();
+
         //Ordenar edades de menor a mayor
         int aux=0;
-        for(int i=0; i<5; i++){
+        for(int i=0; i<6; i++){
             if(jugador[i].getEdad() > jugador[i+1].getEdad()){
                 aux = jugador[i].getEdad();
                 jugador[i].getEdad() = jugador[i+1].getEdad();
