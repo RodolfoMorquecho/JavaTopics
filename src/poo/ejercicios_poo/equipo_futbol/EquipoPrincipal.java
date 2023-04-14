@@ -50,7 +50,14 @@ public class EquipoPrincipal {
         System.out.println("\n");
         jugador5.jugarPartido();
 
-        //Ordenar edades de menor a mayor
+        Futbolista jugador6 = new Futbolista("Puyol","Masculino",44,"Defensa",8);
+        System.out.println("\n");
+        jugador6.informacionPersonal();
+        System.out.println("\n");
+        jugador6.viajar();
+
+
+        /*Ordenar edades de menor a mayor
         int aux=0;
         for(int i=0; i<6; i++){
             if(jugador[i].getEdad() > jugador[i+1].getEdad()){
@@ -60,6 +67,6 @@ public class EquipoPrincipal {
 
                 System.out.print(jugador[i].getEdad());
             }
-        }
+        }*/
     }
 }
