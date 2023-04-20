@@ -55,6 +55,8 @@ public class EquipoPrincipal {
         jugador6.informacionPersonal();
         System.out.println("\n");
         jugador6.viajar();
+        jugador6.entrenar();
+        jugador6.jugarPartido();
 
 
         /*Ordenar edades de menor a mayor
