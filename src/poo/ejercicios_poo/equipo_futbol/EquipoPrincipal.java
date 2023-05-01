@@ -58,6 +58,15 @@ public class EquipoPrincipal {
         jugador6.entrenar();
         jugador6.jugarPartido();
 
+        Futbolista jugador7 = new Futbolista();
+        jugador7.setNombre("Karim Benzema");
+        jugador7.setPosicion("Delantero");
+        jugador7.setSexo("Masculino");
+        jugador7.setEdad(34);
+        jugador7.setDorsal(9);
+        jugador7.concentrarse();
+        jugador7.entrenar();
+        jugador7.jugarPartido();
 
         /*Ordenar edades de menor a mayor
         int aux=0;
